@@ -1,37 +1,68 @@
 import React, { memo } from 'react';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Form, Input } from 'antd';
 
+const productForm = {
+    title: '',
+    price: '',
+    oldPrice: '',
+    stock: '',
+    category: '',
+    available: '',
+    urls: '',
+    desc: '',
+    info: '',
+    rating: '',
+}
 const CreateProduct = () => {
     const onFinish = (values) => { console.log('Success:', values); };
     const onFinishFailed = (errorInfo) => { console.log('Failed:', errorInfo); };
 
     return (
-        <Form
-            name="basic"
-            labelCol={{ span: 8, }}
-            wrapperCol={{ span: 16, }}
-            className='max-w-[600px] w-[100%] mx-auto'
-            initialValues={{ remember: true, }}
-            onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
-            autoComplete="off"
-        >
-            <Form.Item
-                label="Username" name="username"
-                rules={[{ required: true, message: 'Please input your username!', },]} >
-                <Input />
-            </Form.Item>
+        <section className='w-full grid gap-4'>
+            <h2 className='w-[480px] px-5 text-end text-2xl font-semibold bg-transparent'>Create Product</h2>
+            <Form className='max-w-[600px] w-full'
+                name="basic" labelCol={{ span: 8, }} wrapperCol={{ span: 16, }}
+                initialValues={{ remember: true, }} onFinish={onFinish}
+                onFinishFailed={onFinishFailed} autoComplete="off"
+            >
+                <Form.Item label="Title" name="title"
+                    rules={[{ required: true, message: 'Please input your Title!', },]} >
+                    <Input />
+                </Form.Item>
+                <Form.Item label="Price" name="price"
+                    rules={[{ required: true, message: 'Please input your price!', },]} >
+                    <Input />
+                </Form.Item>
+                <Form.Item label="Old Price" name="oldPrice"
+                    rules={[{ required: true, message: 'Please input your old price!', },]} >
+                    <Input />
+                </Form.Item>
+                <Form.Item label="Stock" name="stock"
+                    rules={[{ required: true, message: 'Please input your stock!', },]} >
+                    <Input />
+                </Form.Item>
+                <Form.Item label="Category" name="category"
+                    rules={[{ required: true, message: 'Please input your category!', },]} >
+                    <Input />
+                </Form.Item>
+                <Form.Item label="Available" name="available"
+                    rules={[{ required: true, message: 'Please input your available!', },]} >
+                    <Input />
+                </Form.Item>
+                <Form.Item label="Description" name="desc"
+                    rules={[{ required: true, message: 'Please input your Description!', },]} >
+                    <Input />
+                </Form.Item>
+                <Form.Item label="Urls" className='border-0' name="urls"
+                    rules={[{ required: true, message: 'Please input your images!', },]} >
+                    <Input type='file' className='w-[205px] border-0 bg-transparent hover:bg-transparent active:bg-transparent' />
+                </Form.Item>
 
-            <Form.Item
-                label="Password" name="password"
-                rules={[{ required: true, message: 'Please input your password!', },]} >
-                <Input.Password />
-            </Form.Item>
-
-            <Form.Item wrapperCol={{ offset: 8, span: 16, }} >
-                <Button type="primary" htmlType="submit"> Submit </Button>
-            </Form.Item>
-        </Form>
+                <Form.Item wrapperCol={{ offset: 8, span: 16, }} >
+                    <Button className='w-full' type="primary" htmlType="submit"> Submit </Button>
+                </Form.Item>
+            </Form>
+        </section>
     );
 }
 export default memo(CreateProduct);

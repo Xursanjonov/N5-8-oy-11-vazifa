@@ -16,7 +16,10 @@ monngose
     .catch(() => console.log("MongoDB is not connected"))
 
 app.use("/", Routes)
+// uploads to create a image or video
+app.use(express.urlencoded({ extended: true }))
+app.use("/upload", express.static("./uploads"))
 
 const PORT = process.env.PORT || 8001
 
-app.listen(PORT, ()=> console.log(`${PORT} has been listening`))
+app.listen(PORT, () => console.log(`${PORT} has been listening`))

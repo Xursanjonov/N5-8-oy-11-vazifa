@@ -29,8 +29,7 @@ class UsersController {
     console.log(typeof id);
   }
   // PUT or PATCH update profile
-  async updateProfile() {
-  }
+  async updateProfile() {}
   // POST sign up or register
   async registerUser(req, res) {
     try {
